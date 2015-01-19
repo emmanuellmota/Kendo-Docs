@@ -1,0 +1,6 @@
+name                     : Kendo UI Docs
+version                  : 0.1.0
+author                   : Emmanuel Mota
+
+default-ip               : 127.0.0.1
+default-port             : 8800

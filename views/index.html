@@ -1,0 +1,83 @@
+@{layout('')}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>@{model.title}</title>
+
+    @{css('kendo.common.min.css')}
+    @{css('styles.css')}
+    @{css('theme.css')}
+
+    @{js('jquery.min.js')}
+    @{js('kendo.web.min.js')}
+    @{js('prettify.js')}
+    @{js('app.js')}
+
+    @{favicon('favicon.ico')}
+</head>
+<body>
+<header id="page-header">
+    <span class="toggle-nav"><span></span></span>
+    <div id="logo-bar">
+        <a href="/">
+            <img alt="Kendo UI logo" class="logo" src="/images/kendo-ui.png">
+        </a>
+    </div>
+
+    <div id="page-search">
+    </div>
+
+			<span class="show-search">
+				<span class="k-icon k-i-search"></span>
+			</span>
+
+    <div class="nav-buttons">
+        <a href="http://demos.telerik.com/{{page.product}}" class="btn demos-btn">Demos</a>
+        <a href="http://www.telerik.com/{{page.product}}" class="btn about-btn">About</a>
+        <a href="http://www.telerik.com/purchase/{{page.product}}" class="btn pricing-btn">Pricing</a>
+        <a href="http://localhost:4000/kendo-ui/kendoui.2014.3.1119.trial/examples/" class="btn btn-primary">Try now</a>
+    </div>
+</header>
+
+<div id="page-inner-content">
+    <div id="page-nav">
+        <div id="page-tree"></div>
+        <script>
+            $("#page-tree").kendoTreeView({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: "/default.json",
+                            dataType: "json"
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "path",
+                            children: "items",
+                            hasChildren: "items"
+                        }
+                    }
+                },
+                select: preventParentSelection,
+                template: navigationTemplate("/"),
+                dataBound: expandNavigation("@{model.url}.html")
+            });
+        </script>
+    </div>
+
+    <div id="page-article">
+        <article>
+            @{!model.body}
+        </article>
+    </div>
+</div>
+
+<footer style="position: absolute; right: 0px; bottom: 0px; left: 0px;">
+    <p>Copyright &copy; 2002-2014 Telerik Inc</p>
+</footer>
+</body>
+</html>
