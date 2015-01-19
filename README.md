@@ -1,7 +1,7 @@
-# Kendo-UI-Docs
-Kendo Offline Documentation
+# Kendo Docs
+Kendo Offline Documentation in Node.js
 
-# Usage
+###Usage
 npm install & npm start
 
 Open Browser http://127.0.0.1:8800
