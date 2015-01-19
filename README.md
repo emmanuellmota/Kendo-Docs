@@ -1,5 +1,5 @@
 # Kendo-UI-Docs
-Kendo UI Offline Documentation
+Kendo Offline Documentation
 
 # Usage
 npm install & npm start
