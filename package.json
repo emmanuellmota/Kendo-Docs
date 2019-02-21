@@ -5,7 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "marked": "^0.3.2",
-    "total.js": "^1.6.3"
+    "total.js": ">=3.2.3"
   },
   "scripts": {
     "start": "node app.js"
